@@ -32,7 +32,7 @@ int main(){
             }
             break;
         case 2:
-            // kichThuoc++;
+            menu[kichThuoc].id=kichThuoc+1;
             printf("Nhap ten mon muon them: ");
             fgets(menu[kichThuoc].fullName,sizeof(menu[kichThuoc].fullName),stdin);
             menu[kichThuoc].fullName[strlen(menu[kichThuoc].fullName)-1] = '\0';
@@ -86,21 +86,22 @@ int main(){
             }
             break;
         case 6:
-            char timKiem[100];
-            int check=-1;
-            printf("nhap mon an can tim: ");
-            fgets(menu[kichThuoc-1].fullName,sizeof(menu[kichThuoc-1].fullName),stdin);
-            menu[kichThuoc-1].fullName[strlen(menu[kichThuoc-1].fullName)-1] = '\0';
-            for (int i = 0; i < kichThuoc; i++){
-                if(menu[i].fullName==timKiem){
-                    check=i;
-                    break;
+                char searchName[40];
+		printf("Nhap ten mon an can tim: ");
+		scanf("%s", searchName);
+                getchar();
+                int found = 0;
+                for (int i = 0; i < kichThuoc; i++) {
+                	if (strcmp(menu[i].fullName, searchName) == 0) {
+                                printf("Tim thay: id: %d, name: %s, price: %.2f\n", menu[i].id, menu[i].fullName, menu[i].price);
+                                found = 1;
+                                break;
+                        }
+		}
+                if (found!=1) {
+                        printf("Khong tim thay mon an!\n");
                 }
-            }
-            if(check!=-1){
-                printf("mon an o vi tri: %d",check);
-            }
-            break;
+                break;
         case 7: 
             printf("Ban da thoat\n");
             break;
