@@ -38,6 +38,7 @@ int main(){
             menu[kichThuoc].fullName[strlen(menu[kichThuoc].fullName)-1] = '\0';
             printf("Nhap gia tien: ");
             scanf("%lf",&menu[kichThuoc].price);
+            getchar();
             kichThuoc++;
             for (int i = 0; i < kichThuoc; i++){ 
                 printf("%d. %s: %lf\n",menu[i].id,menu[i].fullName,menu[i].price);
@@ -51,6 +52,7 @@ int main(){
             menu[kichThuoc-1].fullName[strlen(menu[kichThuoc-1].fullName)-1] = '\0';
             printf("Nhap gia tien moi: ");
             scanf("%lf", &menu[kichThuoc-1].price);
+            getchar();
             for (int i = 0; i < kichThuoc; i++){ 
                 if(menu[i].id==0){
                     break;
@@ -86,22 +88,23 @@ int main(){
             }
             break;
         case 6:
-                char searchName[40];
-		printf("Nhap ten mon an can tim: ");
-		scanf("%s", searchName);
-                getchar();
-                int found = 0;
-                for (int i = 0; i < kichThuoc; i++) {
-                	if (strcmp(menu[i].fullName, searchName) == 0) {
-                                printf("Tim thay: id: %d, name: %s, price: %.2f\n", menu[i].id, menu[i].fullName, menu[i].price);
-                                found = 1;
-                                break;
-                        }
-		}
-                if (found!=1) {
-                        printf("Khong tim thay mon an!\n");
+            char searchName[40];
+            printf("Nhap ten mon an can tim: ");
+            scanf("%s", searchName);
+            getchar();
+            // searchName[strlen(searchName)-1] = '\0';
+            int found = 0;
+            for (int i = 0; i < kichThuoc; i++) {
+                if (strcmp(menu[i].fullName, searchName) == 0) {
+                    printf("Tim thay: id: %d, name: %s, price: %.2f\n", menu[i].id, menu[i].fullName, menu[i].price);
+                    found = 1;
+                    break;
                 }
-                break;
+            }
+            if (found!=1) {
+            	printf("Khong tim thay mon an!\n");
+            }
+            break;
         case 7: 
             printf("Ban da thoat\n");
             break;
@@ -110,6 +113,7 @@ int main(){
             break;
         }
     } while (luaChon != 7);
+    
     return 0 ;
 }
 void displayMenu(void){
