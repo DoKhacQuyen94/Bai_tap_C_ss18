@@ -46,20 +46,29 @@ int main(){
                 
             break;
         case 3:
-            printf("Sua phan tu cuoi cung \n");
-            printf("Nhap ten mon moi: ");
-            fgets(menu[kichThuoc-1].fullName,sizeof(menu[kichThuoc-1].fullName),stdin);
-            menu[kichThuoc-1].fullName[strlen(menu[kichThuoc-1].fullName)-1] = '\0';
-            printf("Nhap gia tien moi: ");
-            scanf("%lf", &menu[kichThuoc-1].price);
-            getchar();
-            for (int i = 0; i < kichThuoc; i++){ 
-                if(menu[i].id==0){
+                int idThayDoi;
+                printf("nhap vao id muon sua: ");
+                scanf("%d",&idThayDoi);
+                getchar();
+                if(idThayDoi>kichThuoc-1||idThayDoi<0){
+                    printf("khong ton tai id do\n");
                     break;
                 }
-                printf("%d. %s: %lf\n",menu[i].id,menu[i].fullName,menu[i].price);
-            }
-            break;
+                for(int i=0;i<kichThuoc;i++){
+                        if(idThayDoi==menu[i].id){
+                                printf("nhap vao mon sua: ");
+                                fgets(menu[i].fullName,sizeof(menu[i].fullName),stdin);
+                                menu[i].fullName[strlen(menu[i].fullName)-1]='\0';
+                                printf("nhap vao gia tien muon sua: ");
+                                scanf("%lf",&menu[i].price);
+                                getchar();
+			}
+		}
+                printf("Menu sau khi thay doi la: \n");
+                for(int i=0;i<kichThuoc;i++){
+                	printf("%d. %s: %lf\n",menu[i].id,menu[i].fullName,menu[i].price);
+                }
+	        break;
         case 4:
             kichThuoc--;
             for (int i = 0; i < kichThuoc; i++){ 
