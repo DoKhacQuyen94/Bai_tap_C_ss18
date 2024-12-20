@@ -106,10 +106,10 @@ int main(){
             printf("Ban da thoat\n");
             break;
         default:
+            printf("Lựa chọn sai\n");
             break;
         }
     } while (luaChon != 7);
-    
     return 0 ;
 }
 void displayMenu(void){
