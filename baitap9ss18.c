@@ -8,11 +8,11 @@ struct Dish{
     };
 int main(){
     struct Dish menu[100]={
-        {1,"Khoai Chiên",35000},
-        {2,"Gà chiên",40000},
+        {1,"Khoai",35000},
+        {2,"Ga",40000},
         {3,"Kem",10000},
-        {4,"Cơm Rang", 30000},
-        {5,"Đùi Gà",25000},
+        {4,"Com", 30000},
+        {5,"Vit",25000},
     };
     int luaChon;
     int so=0;
